@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# React Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 概要
+Reactを用いて開発したクイズアプリです。
+Udemy講座をベースにしつつ、設計・実装の約9割を自力で構築しました。
 
-## Available Scripts
+単なる模写ではなく、状態管理・ロジックを自分で考えながら実装しています。
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## デモ
+（デプロイURL or GIF）
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 主な機能
+- クイズの出題（APIから取得）
+- 選択肢の選択と正誤判定
+- スコア計算
+- 進捗表示（progress bar）
+- タイマー機能
+- ハイスコア管理
+- クイズのリスタート
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 技術スタック
+- React
+- JavaScript (ES6+)
+- CSS
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 工夫した点・アピールポイント
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. useReducerによる状態管理
+複雑な状態（問題・回答・スコア・タイマーなど）を一元管理しています。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+状態遷移を明確にするため、以下のようなステータス設計を行いました。
+- loading
+- ready
+- active
+- finished
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. 非同期処理とエラーハンドリング
+APIから問題を取得し、エラー時のUIも実装しています。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. タイマー機能（useEffect）
+setIntervalを用いたタイマーを実装し、クリーンアップも適切に行っています。
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 4. コンポーネント設計
+UIを細かく分割し、責務ごとにコンポーネントを設計しています。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+例：
+- Question（問題表示）
+- Options（選択肢）
+- Progress（進捗）
+- Timer（時間管理）
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 今後の改善点
+- データ永続化（LocalStorage or DB）
+- TypeScript導入
+- UI/UXの改善
+- テストコード追加
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 学習背景
+Jonas Schmedtmann氏のUdemy講座を参考にしながら、
+設計・ロジックの9割は自分で考えて実装しました。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```md
 
-### Making a Progressive Web App
+ 
+```
+# React Quiz App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Overview
+This is a quiz application built with React.
 
-### Advanced Configuration
+While the project is inspired by a Udemy course, approximately 90% of the implementation (including logic and state design) was done independently.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The focus was not on copying, but on understanding and rebuilding the application from scratch.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Demo
+(Add deployment URL or GIF)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Features
+- Fetch quiz questions from API
+- Select answers and validate correctness
+- Score calculation
+- Progress tracking
+- Timer functionality
+- High score tracking
+- Restart quiz
+
+---
+
+## Tech Stack
+- React
+- JavaScript (ES6+)
+- CSS
+
+---
+
+## Key Highlights
+
+### 1. State Management with useReducer
+Complex states such as questions, answers, score, and timer are managed in a centralized reducer.
+
+Clear state transitions:
+- loading
+- ready
+- active
+- finished
+
+---
+
+### 2. Async Data Fetching & Error Handling
+Implemented API fetching with proper error handling UI.
+
+---
+
+### 3. Timer with useEffect
+Built a timer using setInterval with proper cleanup to avoid memory leaks.
+
+---
+
+### 4. Component Architecture
+The UI is split into reusable components with clear responsibilities:
+- Question
+- Options
+- Progress
+- Timer
+
+---
+
+## Future Improvements
+- Persist data (LocalStorage or database)
+- Add TypeScript
+- Improve UI/UX
+- Add testing
+
+---
+
+## Learning Context
+This project was inspired by a Udemy course by Jonas Schmedtmann.
+However, most of the implementation was rebuilt independently to deepen understanding.
