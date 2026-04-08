@@ -1,16 +1,12 @@
-import { useQuiz } from "../contexts/QuizContext";
-
-function NextButton() {
-  const {
-    handleNext,
-    answer,
-    numQuestions,
-    index,
-    handleFinish,
-    handleReStart,
-    status,
-  } = useQuiz();
-
+function NextButton({
+  handleNext,
+  answer,
+  numQuestions,
+  index,
+  handleFinish,
+  handleReStart,
+  status,
+}) {
   const isNextQuestion = numQuestions > index + 1;
 
   if (answer === null && status !== "finished") return null;

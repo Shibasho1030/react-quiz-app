@@ -1,8 +1,4 @@
-import { useQuiz } from "../contexts/QuizContext";
-
-function Options() {
-  const { question, handleNewAnswer, answer } = useQuiz();
-
+function Options({ question, handleNewAnswer, answer }) {
   const hasAnswered = answer !== null;
   const correctNum = question.correctOption;
 
